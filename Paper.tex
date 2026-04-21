@@ -88,11 +88,14 @@ So, to keep using our $\mathbb{Q}(\sqrt{5})$ example, the ring of algebraic inte
 \end{definition}
 
 When referring to the discriminant of a basis of $\mathcal{O}_K$ as opposed to the discriminant of an element(s), the discriminant is referred to absolute
-the \textbf{field discriminant} of $K$ and denoted $d(K)$. Furthermore the discriminant is independent of the choice of integral basis. The discriminant gives us important
-information about how ideals factor in the number ring. It also can be used as a tool to verify if a set of elements form an integral basis for $\mathcal{O}_K$. 
+the \textbf{field discriminant} of $K$ and denoted $d(K)$.  Furthermore the discriminant is independent of the choice of integral basis. The discriminant gives us important
+information about how ideals factor in the number ring. It also can be used as a tool to verify if a set of elements form an integral basis for $\mathcal{O}_K$. It should also be noted that
+for an ideal $I$ of $\mathcal{O}_K$, the discriminant is
+\[\text{disc}(I)=(\mathcal{O}_K:I)^2d_K\]
+where $(\mathcal{O}_K:I)$ is the order of the factor group $\mathcal{O}_K/I$ or equivalently, the absolute norm of the ideal $I$. 
 
-While every number ring is an integral domain, it's generally not a unique factorization domain. However, it has its own unique structure; 
-every number ring is what's known as a Dedekind Domain. 
+While every number ring is an integral domain, it's generally not a unique factorization domain. This is a fairly large failure as it means elements in $\mathcal{O}_K$ might not factor uniquely.
+However, $\mathcal{O}_K$ has its own unique structure; every number ring is what's known as a Dedekind Domain. 
 
 \begin{definition}
     An integral domain, $R$, is called a \textbf{Dedekind Domain} when
@@ -101,56 +104,68 @@ every number ring is what's known as a Dedekind Domain.
         \item[(ii)] Every non-zero prime ideal is maximal
         \item[(iii)] $R$ is integrally closed in its field of fractions
         \[ K = \{ \frac{\alpha}{\beta} | \alpha, \beta \in R, \beta \neq 0 \}\]
-        i.e. the only elemets $\frac{\alpha}{\beta}\in K$ that are integral over $R$ are $\frac{\alpha}{\beta}\in R$.
+        i.e. the only elements $\frac{\alpha}{\beta}\in K$ that are integral over $R$ are $\frac{\alpha}{\beta}\in R$.
     \end{enumerate}
 \end{definition}
 
-This allows us to be able to factor every ideal in a number ring into a product of prime ideals which will be useful later. 
+Thus, while every element in $\mathcal{O}_K$ might not factor uniquely, every ideal in a number ring does. Every ideal in a Dedekind Domain factors
+uniquely into a product of prime ideals similar to how every integer factors uniquely into a product of primes by the Fundamental Theorem of Arithmetic. 
 
-\begin{theorem}
-    In a Dedekind domain, every ideal contains a product of prime ideals. 
-\end{theorem}
-
+Now before we can define the ideal class group, fractional ideals need to be defined. 
 \begin{definition}
     Let $\mathcal{O}$ be a Dedekind Domain and $K$ is its field of fractions. A \textbf{fractional ideal} of $K$ is a set of the form $\alpha I, \alpha \in K, \alpha \neq 0$, where $I$ is a non-zero ideal of $\mathcal{O}$.
 \end{definition}
+A fractional ideal is essentially an ideal that has been scaled by an element of the field, allowing it to have denominators.
+An integral ideal is a subset of the ring $\mathcal{O}_K$ and a fractional ideal is a subset of the field $K$ that is an
+integral ideal in $\mathcal{O}_K$ once the denominators have been cleared. 
+
+Consider the integral ideal $I = \langle2, 1 + \sqrt{-5}\rangle$ in $\mathcal{O}_K = \mathbb{Z}(\sqrt{-5})$ where $K=\mathbb{Q}(\sqrt{-5})$. This is the set of all elements
+$2\alpha + (1 + \sqrt{-5})\beta$ where $\alpha, \beta \in \mathcal{O}_K$. A fractional ideal, $J$ can be created by scaling $I$ by $\frac{1}{2}$:
+\[J = \frac{1}{2}I = \left\{ \alpha + \frac{1 + \sqrt{-5}}{2}\beta \mid \alpha, \beta \in \mathcal{O}_K \right\}\]
+Also, note that integral ideals are also fractional ideals; the denominator is just 1.
 
 \begin{definition}
-    An \textbf{integral ideal} in a ring $R$ is an additive subgroup $I \subset R$ such that $ra \in I, \forall r\in R, a \in I$.
-    An \textbf{integral ideal} can also be obtained by multiplying a fractional ideal, by a common denominator such that it is back in $R$.
+    Let $K$ be an algebraic number field. Let $J_K$ be the group of non-zero fractional ideals of $\mathcal{O}_K$.
+    Let $P_K$ be the subgroup of principal fractional ideals of $J_K$. The \textbf{ideal class group} of $K$ is denoted $Cl_K$ and is the factor group of $J_K/P_K$.
 \end{definition}
+Another way to understand this is that the ideal class group of a number ring consists of equivalence classes of nonzero ideals under the relation
+\[I \sim J \text{ iff } {\alpha}I={\beta}J \text{ for some nonzero } \alpha, \beta \in \mathcal{O}_K\].
+Let's look at $K=\mathbb{Q}(\sqrt{5})$ and $\mathcal{O}_K = \mathbb{Z}(\sqrt{5})$ again. $P_K$ consists of every
+ideal that can be written as $\langle \alpha \rangle$ for some $\alpha \in K$. For example
+\[\langle 1 \rangle, \quad \langle 2 \rangle, \quad \langle 3 \rangle, \quad \langle 1+\sqrt{5} \rangle, \quad \langle \frac{1}{2} \rangle, \text{ etc.}\]
+$J_K$ consists of all fractional ideals of $\mathcal{O}_K$ including $P_K$
+\[\langle 1 \rangle, \quad \langle 1+\sqrt{5} \rangle, \quad \langle \frac{1}{2} \rangle, \quad \langle 2, 1+\sqrt{-5} \rangle, \quad \langle 6, 3+3\sqrt{-5} \rangle, \text{ etc.}\]
+All the principal ideals are equivalent and all the other fractional ideals are equivalent if they differ by a principal ideal.
+Looking at the last two examples of principal ideals we can see that they are actually equivalent over $Cl_K$:
+\[\langle 6, 3+3\sqrt{-5} \rangle = \langle 3 \rangle\langle 2, 1+\sqrt{-5} \rangle\]
+since they differ by the principal ideal $\langle 3 \rangle$. 
 
+In a Dedekind Domain, the property of being a Principal Ideal Domain (PID) and a Unique Factorization Domain (UFD) are equivalent. So the order
+of the ideal class group tells us how far away $\mathcal{O}_K$ is from being a UFD. 
 \begin{definition}
-    A \textbf{factor group} is formed by dividing out a group $R$ by another group $I$ and is denoted $R/I$.
-    The elements of $R/I$ can be regarded as equivalence classes for the congruence relation on $R$ defined by
-    \[ a \equiv b \pmod I \iff a-b \in I \]
+    The order of the ideal class group of $K$, denoted $h_K$ is called the \textbf{class number} of K and denotes the number of elements
+    in $Cl_K$. Equivalently $h_K$ is the number of cosets of $P_K$ in $J_K$ otherwise known as the \textbf{index}: $(G:H)$.
+\end{definition}
+So if $h_K = 1$ it follows immediately that $\mathcal{O}_K$ must be a PID and so in turn must be a UFD because every ideal of $\mathcal{O}_K$ is a principal ideal. 
+
+\begin{definition} \label{intertialDegree}
+    Let $K$ be a number field of degree $n$ over $\mathbb{Q}$ and let $ P \subseteq \mathcal{O}_K$ be a prime ideal. Let $p$ be the unique rational
+    prime contained in $p$. Then $\mathcal{O}_K/P$ is a finite field extension of $\mathbb{Z}_p$; the degree of this extension is called the inertial
+    degree of $P$ over $p$ and is denoted $f(P|p)$. That is,
+    \[f(P|p) = (\mathcal{O}_K/P:\mathbb{Z}_p).\]
 \end{definition}
 
-\begin{definition}
-    The \textbf{order} of some factor group $G/H$ is the number of elements in $G/H$. Equivalently, it is 
-    the number of cosets of $H$ in $G$ otherwise known as the \textbf{index}: $(G:H)$.
-\end{definition}
-
-\begin{definition}
-    Let $K$ be an algebraic number field. Let $J_K$ be the group of non-zero fractional and integral ideals of $\mathcal{O}_K$.
-    Let $P_K$ be the subgroup of principal ideals of $J_K$. The \textbf{ideal class group} of $K$ is denoted $Cl_K$ and is the factor group of $J_K/P_K$.
-\end{definition}
-
-\begin{definition}
-    The order of the ideal class group of $K$, denoted $h_K$ is called the \textbf{class number} of K.
-\end{definition}
-
-\begin{theorem}
-    Let $K$ be an algebraic number field. Then\\
-    $h_K = 1 \iff \mathcal{O}_K$ is a principal ideal domain $\iff \mathcal{O}_K$ is a unique factorizatin domain. 
-\end{theorem}
-
+\section{Geometry of Numbers}
+\label{sec:geometry}
+Before we get into proving the finiteness of the ideal class group, we need some geometry background
+to be able to apply Minkowski's theorems. 
 \begin{definition}
     Let ${v_1, v_2, ..., v_m}$ be a set of $m$ linearly independent vectors in $\mathbb{R}^n$, a \textbf{lattice} $\Gamma$ is the set of all integer linear combinations of those basis vectors:
     \[\Gamma = \{\sum_{i=1}^{m}a_iv_i | a_i \in \mathbb{Z} \}\]
-    The elements of $\Gamma$ are called \textbf{lattice points}. The lattice is called \textbf{complete} if $m=n$. The \textbf{volume} of the \textbf{funadmental mesh} of $\Gamma$ is
+    The elements of $\Gamma$ are called \textbf{lattice points}. The lattice is called \textbf{complete} if $m=n$. The \textbf{volume} of the \textbf{fundamental mesh} of $\Gamma$ is
     \[vol(\Gamma) = |\det(A)| \]
-    where $$A = \begin{bmatrix} | & | & & | \\ v_1 & v_2 & \dots & v_m \\ | & | & & | \end{bmatrix}$$
+    where
+    \[A = \begin{bmatrix} | & | & & | \\ v_1 & v_2 & \dots & v_m \\ | & | & & | \end{bmatrix}\]
 \end{definition}
 A simple example of a lattice is the standard integer lattice $\mathbb{Z}^2$, which forms a grid of all integer pairs in 2D space. In this case $m=2$ so the lattice is complete and we use the standard basis
 $v_1=(1,0)$ and $v_2=(0,1)$. See Figure \ref{fig:z2lattice} for a visual. The volume of the fundamental mesh of $\mathbb{Z}^2$ is simple to calculate:
@@ -185,49 +200,169 @@ In other words, a shape is centrally symmetric if it looks exactly the same when
     Then $X$ contains at least one nonzero lattice point $\gamma \in \Gamma$.
 \end{theorem}
 
-\begin{definition}
-    Let $K/\mathbb{Q}$ be a finite extension, and let $I \neq 0$ be an ideal of $\mathcal{O}_K$. The \textbf{absolute norm} of $I$ is given by
-    \[ \mathfrak{N}(I) = (\mathcal{O}_K : I)\]
-\end{definition}
-
-\begin{definition}
-    Let $K$ be a number field of degree $n = r + 2s$, with $r$ real embeddings $\rho_1, \dots, \rho_r$ and $s$ pairs of complex conjugate embeddings $\sigma_1, \bar{\sigma}_1, \dots, \sigma_s, \bar{\sigma}_s$. The \textbf{canonical embedding} (or Minkowski embedding) is the injective ring homomorphism $j: K \to \mathbb{R}^n$ defined by:
-    \[ j(\alpha) = (\rho_1(\alpha), \dots, \rho_r(\alpha), \text{Re}(\sigma_1(\alpha)), \text{Im}(\sigma_1(\alpha)), \dots, \text{Re}(\sigma_s(\alpha)), \text{Im}(\sigma_s(\alpha))) \]
-    The target space $\mathbb{R}^n$ is called the \textbf{Minkowski space}.
-\end{definition}
-
-\begin{lemma}
-    Let $K/\mathbb{Q}$ be a finite extension and let $I \neq 0$ be an ideal of $\mathcal{O}_K$.
-    If $I=\mathcal{P}^{v_1}_1...\mathcal{P}^{v_r}_r$ is the prime factorization of $I$, Then
-    \[\mathfrak{N}(I)=\mathfrak{N}(\mathcal{P}_1)^{v_1}...\mathfrak{N}(\mathcal{P}_r)^{v_r}\]
-\end{lemma}
-
-\begin{lemma}
-    Let $K=\mathbb{Q}(\theta)$ be an algebraic number field of degree $n=r+2s$, where $\theta$
-    has $r$ real conjugates and $s$ pairs of non real complex conjugates. Let $A$ be an integral or fractional ideal of $\mathcal{O}_K$.
-    Then there exists an element $\alpha (\neq 0) \in A$ such that
-    \[N_{K/\mathbb{Q}}(\alpha) \leq (\frac{2}{\pi})^s \sqrt{|d(K)}\mathfrak{N}(A).\] 
-\end{lemma}
-
-\begin{theorem}
-    Let $K=\mathbb{Q}(\theta)$ be an algebraic number field of degree $n=r+2s$, where $\theta$
-    has $r$ real conjugates and $s$ pairs of non real complex conjugates. Let $C \in Cl_K$. Then $C$ contains an integral ideal $B \neq <0>$ with
-    \[\mathfrak{N}(B) \leq (\frac{2}{\pi})^s \sqrt{|d(K)}.\] 
-\end{theorem}
-
-\begin{theorem}
-    Let $K/\mathbb{Q}$ be a finite extension. The class number $h_k=(J_K:P_K)$ is finite.
-\end{theorem}
-
-
-\section{Geometry of Numbers}
-\label{sec:geometry}
-
-\section{Minkowski's Theorem}
-\label{sec:minkowski}
+Let's look at the ring of Gaussian integers, $\mathbb{Z}[i]$, which can be viewed as the standard lattice $\Gamma = \mathbb{Z}^2$ in $\mathbb{R}^2$.
+Here the basis vectors are $v_1=(1,0)$ and $v_2=(0,1)$ and the volume is $vol(\Gamma)=1$. Let $X$ be a disk centered at the origin with radius $R$.
+This shape is convex and centrally symmetric with a volume (area in this case) of $vol(X) = {\pi}R^2$. Using Minkowski's theorem:
+\[vol(X) > 2^nvol(\Gamma) \implies {\pi}R^2 > 2^2 * 1 \implies R > \sqrt{\frac{4}{\pi}} \approx 1.128.\]
+So if we choose a radius just slightly larger than $1.128$, Minkowski's theorem guarantees a non-zero Gaussian integer exists within that circle. 
 
 \section{Proof of Class Group Finiteness}
 \label{sec:finiteness}
+Now we are able to apply the theory of lattices to the study of algebraic number fields of degree $n$. The field can be thought of as an
+n dimensional vector space and we will show that $\mathcal{O}_K$ forms a lattice in the vector space. First, remember that embeddings map 
+generators to a root of its respective minimal polynomial. A real embedding maps from $K \to \mathbb{R}$ while a complex embedding maps from
+$K \to \mathbb{C}$. 
+
+Take for example, the number field $K = \mathbb{Q}(\sqrt[3]{2})$. The minimal polynomial is $f(x) = x^3 -2$ and the roots are
+$\theta_1 = \sqrt[3]{2}, \quad \theta_2 = \omega\sqrt[3]{2} \quad \theta_3 = \omega^2\sqrt[3]{2}$ where $\omega = e^{2\pi i/3}$. Here there is one
+real embedding ($\rho_1$) and two complex embeddings($\sigma_1$, $\sigma_2$):
+\[ \rho_1(\sqrt[3]{2}) = \sqrt[3]{2}, \quad \sigma_1(\sqrt[3]{2}) = \omega \sqrt[3]{2}, \quad \sigma_2(\sqrt[3]{2}) = \omega^2 \sqrt[3]{2}.\]
+\begin{definition}
+    Let $K$ be a number field of degree $n = r + 2s$, with $r$ real embeddings $\rho_1, \dots, \rho_r$ and $s$ pairs of complex conjugate embeddings $\sigma_1, \bar{\sigma}_1, \dots, \sigma_s, \bar{\sigma}_s$. The \textbf{canonical embedding} (or Minkowski embedding) is the injective ring homomorphism $j: K \to \mathbb{R}^n$ defined by:
+    \[ j(\alpha) = (\rho_1(\alpha), \dots, \rho_r(\alpha), \text{Re}(\sigma_1(\alpha)), \text{Im}(\sigma_1(\alpha)), \dots, \text{Re}(\sigma_s(\alpha)), \text{Im}(\sigma_s(\alpha))) \]
+    The target space $\mathbb{R}^n$ is called the \textbf{Minkowski space}, $K_\mathbb{R}$.
+\end{definition}
+So, for $K = \mathbb{Q}(\sqrt[3]{2})$ and $\alpha = \sqrt[3]{2}$, $r = 1$, $s=1$ since $\sigma_1$ and $\sigma_2$ are a single conjugate pair. So,
+$n=r+2s = 3$, meaning the Minkowski space is $\mathbb{R}^3$. Furthermore, since 
+\[\sigma_1(\sqrt[3]{2}) = \omega \sqrt[3]{2} = \sqrt[3]{2}(-\frac{1}{2} + i\frac{\sqrt{3}}{2})\]
+we get
+\[j(\alpha) = (\sqrt[3]{2}, -\frac{\sqrt[3]{2}}{2}, \frac{\sqrt[3]{2}\sqrt{3}}{2}).\]
+
+It will soon be useful to see the relationship between the complex vectors and the real vectors in the Minkowski space. It turns out
+$|\det(M)| = 2^{-s}|\det(A)|$ where $M$ is the matrix formed by the real vectors and $A$ is the matrix formed by the complex vectors.
+For example,
+\[
+    \begin{bmatrix} \rho_1(\alpha) \\ \text{Re}(\sigma_1)(\alpha) \\ \text{Im}(\sigma_1(\alpha)) \end{bmatrix}
+    = \begin{bmatrix}
+    \sqrt[3]{2} \\ -\frac{\sqrt[3]{2}}{2} \\ \frac{\sqrt[3]{2}\sqrt{3}}{2}
+    \end{bmatrix}
+    = \underbrace{\begin{bmatrix}1 & 0 & 0 \\ 0 & \frac{1}{2} & \frac{1}{2} \\ 0 & \frac{1}{2i} & -\frac{1}{2i} \end{bmatrix}}_{T}
+    \begin{bmatrix}
+    \rho_1(\alpha) \\ \sigma_1(\alpha) \\ \sigma_2(\alpha)
+    \end{bmatrix}
+    = \begin{bmatrix}1 & 0 & 0 \\ 0 & \frac{1}{2} & \frac{1}{2} \\ 0 & \frac{1}{2i} & -\frac{1}{2i} \end{bmatrix}
+    \begin{bmatrix}
+    \sqrt[3]{2} \\ \sqrt[3]{2}(-\frac{1}{2} + i\frac{\sqrt{3}}{2}) \\ \sqrt[3]{2}(-\frac{1}{2} - i\frac{\sqrt{3}}{2})
+    \end{bmatrix}
+\]
+\[
+    |\det(T)| = |1 \cdot \det\begin{pmatrix} 1/2 & 1/2 \\ 1/2i & -1/2i \end{pmatrix}| = |-\frac{1}{4i} - \frac{1}{4i} = -\frac{1}{2i}| = |\frac{i}{2}| = \frac{1}{2} = 2^{-1}
+\]
+where $s=1$ because there is one pair of complex conjugate embeddings. 
+
+Now that we can view $K$ as an $n$-dimensional euclidean space, we can interpret $\mathcal{O}_K$ and its ideals
+as lattices in the Minkowski space using the following lemma.
+\begin{lemma} \label{volLemma}
+Let $K$ be a finite extension of $\mathbb{Q}$, and let $I\neq 0$ be an ideal of $\mathcal{O}_K$. Let $j$ be the map from $K$ 
+into the Minkowski space. Then $\Gamma = j(I)$ is a complete lattice in $K_\mathbb{R}$, and its fundamental mesh has volume
+\[vol(\Gamma)=2^{-s}\sqrt{|d_K|}(\mathcal{O}_K:I).\]
+\end{lemma}
+\begin{proof}
+Let $\{\alpha_1, \alpha_2, \dots, \alpha_n\}$ be a $\mathbb{Z}$-basis of $I$. Then the lattice 
+$\Gamma=j(I)$ is spanned by the real vectors $\{j(\alpha_1), j(\alpha_2), \dots, j(\alpha_n)\}$ in $\mathbb{R}^n$. 
+Let $M$ be the $n \times n$ matrix whose rows are these vectors. Then the volume of the fundamental mesh is given by
+$vol(\Gamma)=|\det(M)|.$ 
+$\{\tau_1, \tau_2, \dots, \tau_n\}$ be the embeddings of $K$ into $\mathbb{C}$. Then, if
+\[A = \begin{bmatrix}\tau_1(\alpha_1) & \tau_2(\alpha_1) & ... & \tau_n(\alpha_1) \\ \tau_1(\alpha_2) & \tau_2(\alpha_2) & ... & \tau_n(\alpha_2) \\ ... & ... & ... & ... \\ \tau_1(\alpha_n) & \tau_2(\alpha_n) & ... & \tau_n(\alpha_n) \end{bmatrix}\]
+the transformation from $\mathbb{C}^n$ to $\mathbb{R}^n$ is
+\[vol(\Gamma) = |\det(M)| = 2^{-s}|\det(A)|.\]
+But we know the discriminant is
+\[\text{disc}(I) = d(\alpha_1, \alpha_2, \dots, \alpha_n) = \det(A)^2 = (\mathcal{O}_K:I)^2d_K.\]
+So,
+\[vol(\Gamma) = 2^{-s}|\det(A)| = 2^{-s}\sqrt{|d_K|}(\mathcal{O}_K:I),\]
+as desired.
+\end{proof}
+
+In order to apply lattices of ideals to the class number, we need to first prove a theorem that will aid us to find a "bound" for ideals. The theorem comes as a direct
+result of the Minkowski Lattice Point Theorem. Essentially, it says that there exists a non-zero
+$\alpha$ in and ideal $I$ such that any embedding of $\alpha$ is less than some chosen 
+constants $c_\tau$, provided that the product of these constants is large enough to guarantee that the space they 
+define contains at least one non-zero point of the ideal's lattice. Formally,
+\begin{theorem} \label{boundsTheorem}
+Let $K/\mathbb{Q}$ be a finite extension, and let $I\neq0$ be an ideal of $\mathcal{O}_K$. Let $c_\tau>0$,
+for $\tau \in \text{Hom}(K,\mathbb{C})$, be a real number such that $c_\tau = c_{\bar{\tau}}$ and
+\[ \prod_{\tau}c_\tau > A(\mathcal{O}_K:I),\]
+where $A=(2/\pi)^s\sqrt{|d_K|}$. Then there exists a nonzero $\alpha \in I$ such that
+\[|\tau \alpha| < c_\tau \text{ for all } \tau \in \text{Hom}(K, \mathbb{C}).\]
+\end{theorem}
+\begin{proof}
+    Let 
+    \[
+        X = \{(z_\tau) \in K_\mathbb{R} | |z_\tau| < c_\tau\}.
+    \]
+    This is simply some solid shape in $\mathbb{R}^n$ bounded by some chosen constants for each embedding.
+    This set is centrally symmetric because $|z_\tau| = |-z_\tau|$, and it's convex since if $|z_\tau|, |w_\tau| < c_\tau$, then
+    \[
+        |\frac{1}{2}(z_\tau+w_\tau)| = \frac{1}{2}|z_\tau+w_\tau| \leq \frac{1}{2}|z_\tau| + \frac{1}{2}|w_\tau| \leq \max\{|z_\tau|, |w_\tau|\} < c_\tau.
+    \]
+    Because $K_\mathbb{R}$ is created from $r$ real lines and $s$ complex planes, each point in $X$ is the product of
+    a real embedding ($\rho$) -- $|z_\rho| < c_\rho$ defines a 1D interval on a real line whose volume (length) is $2c_\rho$ --
+    and a complex pair of embeddings ($\sigma, \bar{\sigma}$) -- $|z_\sigma| < c_\sigma$ defines a 2D disk in a complex plane whose volume (area) is $\pi c_\sigma^2$.
+
+    Then to find the total volume of $X$, we need to multiply all the individual volumes together. Since there are $r$ real embeddings, we get
+    $(2c_{\rho_1})(2c_{\rho_2})\dots(2c_{\rho_r}) = 2^r \prod c_\rho$. And there are $s$ complex embedding pairs, we get 
+    $(\pi c_{\sigma_1}^2)(\pi c_{\sigma_2}^2)\dots(\pi c_{\sigma_s}^2) = \pi^s \prod c_\sigma^2$. So the total volume is
+    \[vol(X) = (2^r \prod c_\rho) \cdot (\pi^s \prod c_\sigma^2) = 2^r \pi^s \prod_\tau c_\tau. \]
+    But, from our definition of $c_\tau$,
+    \begin{align*}
+    vol(X) &= 2^r \pi^s \prod_{\tau} c_\tau \\
+    &> 2^r \pi^s \left( \frac{2}{\pi} \right)^s \sqrt{|d_K|} (\mathcal{O}_K:I) \\
+    &= 2^{r+s} \sqrt{|d_K|} (\mathcal{O}_K:I) \\
+    &= 2^{r+2s} \left( 2^{-s} \sqrt{|d_K|} (\mathcal{O}_K:I) \right) && \text{by Lemma \ref{volLemma}} \\
+    &= 2^n vol(\Gamma)
+    \end{align*}
+    Thus, by the Minkowski Lattice Point Theorem, there exists a lattice point $j(\alpha) \in X, \alpha \neq 0, \alpha \in I.$ So based on how we defined 
+    $X$, $|\tau(\alpha)| < c_\tau$, as desired.
+\end{proof}
+
+\begin{lemma}
+    Let $K/\mathbb{Q}$ be a finite extension and let $I \neq 0$ be an ideal of $\mathcal{O}_K$.
+    If $I=\mathcal{P}^{v_1}_1...\mathcal{P}^{v_r}_r$ is the prime factorization of $I$, then the norm of $I$ is
+    \[\mathfrak{N}(I) = (\mathcal{O}_K : I) =\mathfrak{N}(\mathcal{P}_1)^{v_1}...\mathfrak{N}(\mathcal{P}_r)^{v_r}\]
+\end{lemma}
+
+\begin{lemma} \label{normElemBoundLemma}
+    Let $K=\mathbb{Q}(\theta)$ be an algebraic number field of degree $n=r+2s$, where $\theta$
+    has $r$ real conjugates and $s$ pairs of non real complex conjugates. Let $A$ be an integral ideal of $\mathcal{O}_K$.
+    Then there exists an element $\alpha (\neq 0) \in A$ such that
+    \[|N_{K/\mathbb{Q}}(\alpha)| \leq (\frac{2}{\pi})^s \sqrt{|d(K)|}\mathfrak{N}(A).\] 
+\end{lemma}
+
+
+
+\begin{proof}
+    Given $\epsilon > 0$, we can choose positive real numbers $c_\tau$, for $\tau \in \text{Hom}(K, \mathbb{C})$, such that $c_\tau=c_{\bar{\tau}}$ and
+    \[ \prod_{\tau}c_\tau = (\frac{2}{\pi})^s\sqrt{|d_K|}\mathfrak{N}(A)+\epsilon.\]
+    Then by Theorem \ref{boundsTheorem}, we find an element $\alpha \in A, \alpha \neq 0$, satisfying $\tau \alpha < c_\tau$. Thus
+    \[|N_{K/\mathbb{Q}}(\alpha)| = \prod_\tau|\tau \alpha| < (\frac{2}{\pi})^s\sqrt{|d_K|}\mathfrak{N}(A)+\epsilon. \]
+    Since $|N_{K/\mathbb{Q}}(\alpha)|$ is a positive integer, 
+    \[|N_{K/\mathbb{Q}}(\alpha)| \leq (\frac{2}{\pi})^s\sqrt{|d_K|}\mathfrak{N}(A). \]
+\end{proof}
+Now we can finally prove the theorem we've been building up to.
+\begin{theorem}
+    Let $K/\mathbb{Q}$ be a finite extension. The class number $h_K=(J_K:P_K)$ is finite.
+\end{theorem}
+
+\begin{proof}
+It's important to note that for every prime $p \in \mathbb{Z}$, $p\mathcal{O}_K = \langle p \rangle = P_1^{v_1}P_2^{v_2} \dots P_k^{v_k}$
+where $P_i$ is a prime ideal of $\mathcal{O}_K$ that contains $p$. As such, there are finitely many such ideals as $P_i \mid \langle p \rangle$.
+Also the absolute norm of every prime ideal is bounded by definition \ref{intertialDegree}: $\mathfrak{N}(P_i) = p^f$ where $f = (\mathcal{O}_K/P_i:\mathbb{Z}_p)$ 
+Because there's a finite number of prime ideals containing $p$, there's a finite amount of prime ideals bounded by $p^f$ for every prime integer. 
+So choose $M = (\frac{2}{\pi})^s \sqrt{|d(K)|}$.
+There then must be a finite number of integral ideals, $A$, such that
+\[\mathfrak{N}(\mathfrak{a}) = \mathfrak{N}(\mathfrak{p}_1)^{v_1} \cdots \mathfrak{N}(\mathfrak{p}_r)^{v_r} \leq M.\]
+
+So if we show that every ideal class in $Cl_K$ has a representative with absolute norm less than $M$ then there must be finite ideal classes and
+as such $Cl_K$ would have a finite order. 
+
+Let $[A]$ be an arbitrary class in $Cl_K$ and let $A$ be an arbitrary representative. $A$ is a fractional ideal so there exists some nonzero $\gamma \in \mathcal{O}_K$ such that
+$B = \gamma A^{-1} \subseteq \mathcal{O}_K$, i.e. $B$ is an integral ideal of $O_K$. Then by Lemma \ref{normElemBoundLemma} there exists $\alpha \in B$ such that
+\[|N_{K/\mathbb{Q}}(\alpha)| \leq (\frac{2}{\pi})^s\sqrt{|d_K|}\mathfrak{N}(B)\]
+\[ \implies |N_{K/\mathbb{Q}}(\alpha)|\mathfrak{N}(B)^{-1} \leq (\frac{2}{\pi})^s\sqrt{|d_K|}\]
+\[ \implies \mathfrak{N}(\alpha B^{-1}) \leq (\frac{2}{\pi})^s\sqrt{|d_K|}\]
+because the $|N_{K/\mathbb{Q}}(\alpha)|=\mathfrak{N}(\langle \alpha \rangle)$. Then since $\alpha B^{-1} = \alpha (\gamma A^{-1})^{-1} = \alpha (\gamma^{-1}A) = \frac{\alpha}{\gamma}A$, $\alpha B^{-1}$ must also be an ideal of $[A]$
+because it differs by an element in $K$. Thus since $[A]$ was chosen arbitrarily, every class in $Cl_K$ contains an ideal bounded by $M$, and thus $h_K$ must be finite as desired. 
+\end{proof}
 
 \section{Conclusion and Applications}
 \label{sec:conclusion}
