@@ -89,7 +89,7 @@ for an ideal $I$ of $\mathcal{O}_K$, the discriminant is
 \[\text{disc}(I)=(\mathcal{O}_K:I)^2d_K\]
 where $(\mathcal{O}_K:I)$ is the order of the factor group $\mathcal{O}_K/I$ or equivalently, the absolute norm of the ideal $I$. 
 
-While every number ring is an integral domain, it's generally not a unique factorization domain. This is a fairly large failure as it means elements in $\mathcal{O}_K$ might not factor uniquely.
+While every number ring is an integral domain, it is generally not a unique factorization domain. This is a fairly large failure as it means elements in $\mathcal{O}_K$ might not factor uniquely.
 However, $\mathcal{O}_K$ has its own unique structure; every number ring is what's known as a Dedekind Domain. 
 
 \begin{definition}
@@ -143,7 +143,7 @@ of the ideal class group tells us how far away $\mathcal{O}_K$ is from being a U
 \end{definition}
 So if $h_K = 1$ it follows immediately that $\mathcal{O}_K$ must be a PID and so in turn must be a UFD because every ideal of $\mathcal{O}_K$ is a principal ideal. 
 
-\begin{definition} \label{intertialDegree}
+\begin{definition} \label{inertialDegree}
     Let $K$ be a number field of degree $n$ over $\mathbb{Q}$ and let $ P \subseteq \mathcal{O}_K$ be a prime ideal. Let $p$ be the unique rational
     prime contained in $P$. Then $\mathcal{O}_K/P$ is a finite field extension of $\mathbb{Z}_p$; the degree of this extension is called the inertial
     degree of $P$ over $p$ and is denoted $f(P|p)$. That is,
@@ -204,9 +204,8 @@ So if we choose a radius just slightly larger than $1.128$, Minkowski's theorem 
 \section{Proof of Class Group Finiteness}
 \label{sec:finiteness}
 Now we are able to apply the theory of lattices to the study of algebraic number fields of degree $n$. The field can be thought of as an
-n dimensional vector space and we will show that $\mathcal{O}_K$ forms a lattice in the vector space. First, remember that embeddings map 
-generators to a root of its respective minimal polynomial. A real embedding maps from $K \to \mathbb{R}$ while a complex embedding maps from
-$K \to \mathbb{C}$. 
+n-dimensional vector space and we will show that $\mathcal{O}_K$ forms a lattice in the vector space. First, remember that embeddings map
+generators to a root of their respective minimal polynomials. A real embedding maps $K$ to $\mathbb{R}$, while a complex embedding maps $K$ to $\mathbb{C}$.
 
 Take for example, the number field $K = \mathbb{Q}(\sqrt[3]{2})$. The minimal polynomial is $f(x) = x^3 -2$ and the roots are
 $\theta_1 = \sqrt[3]{2}, \quad \theta_2 = \omega\sqrt[3]{2} \quad \theta_3 = \omega^2\sqrt[3]{2}$ where $\omega = e^{2\pi i/3}$. Here there is one
@@ -245,7 +244,7 @@ For example,
 \]
 where $s=1$ because there is one pair of complex conjugate embeddings. 
 
-Now that we can view $K$ as an $n$-dimensional euclidean space, we can interpret $\mathcal{O}_K$ and its ideals
+Now that we can view $K$ as an $n$-dimensional Euclidean space, we can interpret $\mathcal{O}_K$ and its ideals
 as lattices in the Minkowski space using the following lemma.
 \begin{lemma}\label{volLemma}\cite{Eullery}
 Let $K$ be a finite extension of $\mathbb{Q}$, and let $I\neq 0$ be an ideal of $\mathcal{O}_K$. Let $j$ be the map from $K$ 
@@ -286,7 +285,7 @@ Then there exists a nonzero $\alpha \in I$ such that
         X = \{(z_\tau) \in K_\mathbb{R} | |z_\tau| < c_\tau\}.
     \]
     This is simply some solid shape in $\mathbb{R}^n$ bounded by some chosen constants for each embedding.
-    This set is centrally symmetric because $|z_\tau| = |-z_\tau|$, and it's convex since for any $t \in [0,1]$ and
+    This set is centrally symmetric because $|z_\tau| = |-z_\tau|$, and it is convex since for any $t \in [0,1]$ and
     $|z_\tau|, |w_\tau| < c_\tau$, by the triangle inequality
     \[|tz_\tau+(1-t)w_\tau| \leq t|z_\tau|+(1-t)|w_\tau| < tc_\tau +(1-t)c_\tau = c_\tau.\]
 
@@ -312,7 +311,7 @@ Then there exists a nonzero $\alpha \in I$ such that
 
 \begin{lemma}\label{normElemBoundLemma}\cite{Eullery}
     Let $K=\mathbb{Q}(\theta)$ be an algebraic number field of degree $n=r+2s$, where $\theta$
-    has $r$ real conjugates and $s$ pairs of non real complex conjugates. Let $A$ be an integral ideal of $\mathcal{O}_K$.
+    has $r$ real conjugates and $s$ pairs of non-real complex conjugates. Let $A$ be an integral ideal of $\mathcal{O}_K$.
     Then there exists an element $\alpha (\neq 0) \in A$ such that
     \[|N_{K/\mathbb{Q}}(\alpha)| \leq (\frac{2}{\pi})^s \sqrt{|d_K|}\mathfrak{N}(A).\] 
 \end{lemma}
@@ -331,10 +330,10 @@ Now we can finally prove the theorem we've been building up to.
 \end{theorem}
 
 \begin{proof}
-It's important to note that for every prime $p \in \mathbb{Z}$, $p\mathcal{O}_K = \langle p \rangle = P_1^{v_1}P_2^{v_2} \dots P_k^{v_k}$
+It is important to note that for every prime $p \in \mathbb{Z}$, $p\mathcal{O}_K = \langle p \rangle = P_1^{v_1}P_2^{v_2} \dots P_k^{v_k}$
 where $P_i$ is a prime ideal of $\mathcal{O}_K$ that contains $p$. As such, there are finitely many such ideals as $P_i \mid \langle p \rangle$.
-Also the absolute norm of every prime ideal is bounded by definition \ref{intertialDegree}: $\mathfrak{N}(P_i) = p^f$ where $f = (\mathcal{O}_K/P_i:\mathbb{Z}_p)$. 
-Because there's a finite number of prime ideals containing $p$, there's a finite number of prime ideals bounded by $p^f$ for every prime integer. 
+Also the absolute norm of every prime ideal is bounded by definition \ref{inertialDegree}: $\mathfrak{N}(P_i) = p^f$ where $f = (\mathcal{O}_K/P_i:\mathbb{Z}_p)$. 
+Because there is a finite number of prime ideals containing $p$, there is a finite number of prime ideals bounded by $p^f$ for every prime integer. 
 So choose $M = (\frac{2}{\pi})^s \sqrt{|d_K|}$.
 There then must be a finite number of integral ideals, $A$, such that
 \[\mathfrak{N}(A) = \mathfrak{N}(P_1)^{v_1} \cdots \mathfrak{N}(P_r)^{v_r} \leq M.\]
@@ -364,7 +363,7 @@ Given an algebraic number field K = $\mathbb{Q}(\theta)$,
 \item Determine the generators of $Cl_K$ from the classes of these products.
 \end{enumerate}
 
-Let's use this algorithm to find the class group for $K=\mathbb{Q}(\sqrt{-14})$. We know $n=2$ because the minimal polynomial is $x^2 + 14$. There's only 2 roots and neither are real so $r = 0$ and $s = 1$.
+Let's use this algorithm to find the class group for $K=\mathbb{Q}(\sqrt{-14})$. We know $n=2$ because the minimal polynomial is $x^2 + 14$. There are only two roots and neither is real, so $r = 0$ and $s = 1$.
 The field discriminant is $d_K = -56$. Thus the Minkowski bound is
 \[M_K = (\frac{2}{\pi})^s \sqrt{|d_K|} = (\frac{2}{\pi})\sqrt{56} < 5.\]
 The rational primes $p \leq M_K$ are $p=2$ and $p=3$. Using Dedekind's theorem we have
@@ -393,7 +392,7 @@ three distinct classes: $[1], [P_1], [P_2]$.
 We know $h_K \leq 4$. We also know $[P_1]^2 = 1$ which means $2 | h_K$ so $h_K = 2 \text{ or } 4$. If $P_2 \equiv P_3$ then there would only be three unique
 classes which we know isn't true. So $P_2$ and $P_3$ must be distinct class representatives. Thus $Cl_K = \{[1], [P_1], [P_2], [P_3]\}$ and $h_K = 4$. So
 \[Cl_K \cong \mathbb{Z}_4 \text{ or } \mathbb{Z}_2 \times \mathbb{Z}_2.\]
-To determine which group the class group is isomorphic to we just need to know the order of $[P_2]$. If it's 2,
+To determine which group the class group is isomorphic to we just need to know the order of $[P_2]$. If its order is 2,
 \[\mathfrak{N}(P_2^2) = a^2 + 14b^2 \implies a = \pm 3 \implies P_2^2 = \langle \pm 3 \rangle = \langle 3 \rangle = P_2P_3.\]
 But, $P_3 \neq P_2$ so this is a contradiction. Since the order of a class must divide the group order, the order of $[P_2]$ must be 4 which implies
 $Cl_K \cong \mathbb{Z}_4$ and $[P_2]$ is the generator of the class group.
