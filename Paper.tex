@@ -330,15 +330,15 @@ Now we can finally prove the theorem we've been building up to.
 \end{theorem}
 
 \begin{proof}
-It is important to note that for every prime $p \in \mathbb{Z}$, $p\mathcal{O}_K = \langle p \rangle = P_1^{v_1}P_2^{v_2} \dots P_k^{v_k}$
-where $P_i$ is a prime ideal of $\mathcal{O}_K$ that contains $p$. As such, there are finitely many such ideals as $P_i \mid \langle p \rangle$.
-Also the absolute norm of every prime ideal is bounded by definition \ref{inertialDegree}: $\mathfrak{N}(P_i) = p^f$ where $f = (\mathcal{O}_K/P_i:\mathbb{Z}_p)$. 
-Because there is a finite number of prime ideals containing $p$, there is a finite number of prime ideals bounded by $p^f$ for every prime integer. 
-So choose $M = (\frac{2}{\pi})^s \sqrt{|d_K|}$.
-There then must be a finite number of integral ideals, $A$, such that
-\[\mathfrak{N}(A) = \mathfrak{N}(P_1)^{v_1} \cdots \mathfrak{N}(P_r)^{v_r} \leq M.\]
+It's important to note that every ideal in $\mathcal{O}_K$ factors uniquely into a product of prime ideals
+\[\mathfrak{N}(I) = \mathfrak{N}(P_1)\mathfrak{N}(P_2)\dots\mathfrak{N}(P_k) \]
+and by definition \ref{inertialDegree}: $\mathfrak{N}(P_i) = p^f$ where $f = (\mathcal{O}_K/P_i:\mathbb{Z}_p)$ and $p$ is the prime lying under $P_i$.
+Let $M_K = (\frac{2}{\pi})^s \sqrt{|d_K|}$. Then,
+\[\mathfrak{N}(I) = \mathfrak{N}(P_1)\mathfrak{N}(P_2)\dots\mathfrak{N}(P_k) \leq M_K \implies \mathfrak{N}(P_i) = p_i^{f_i} \leq M_K \implies p_i \leq M_K.\]
+Since there are a finite number of rational primes that are less than or equal to some constant $M_K$, there are a finite number of prime ideals lying over a prime rational,
+and every ideal in $\mathcal{O}_K$ factors uniquely into prime ideals, there must be a finite number of ideals such that $\mathfrak{N}(I) \leq M_K$.
 
-So if we show that every ideal class in $Cl_K$ has a representative with absolute norm less than $M$ then there must be finite ideal classes and
+If we show that every ideal class in $Cl_K$ has a representative with absolute norm less than $M_K$ then there must be finite ideal classes and
 as such $Cl_K$ would have a finite order. 
 
 Let $[A]$ be an arbitrary class in $Cl_K$ and let $A$ be an arbitrary representative. $A$ is a fractional ideal so there exists some nonzero $\gamma \in \mathcal{O}_K$ such that
